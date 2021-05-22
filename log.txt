@@ -1,0 +1,77 @@
+david---2021/05/22 10:03:41 INFO: All 1 tables opened in 1ms
+david---2021/05/22 10:03:41 INFO: Replaying file id: 0 at offset: 162
+david---2021/05/22 10:03:41 INFO: Replay took: 8.815µs
+david---2021/05/22 10:03:41 DEBUG: Value log discard stats empty
+david---2021/05/22 10:24:53 INFO: All 1 tables opened in 0s
+david---2021/05/22 10:24:53 INFO: Replaying file id: 0 at offset: 162
+david---2021/05/22 10:24:53 INFO: Replay took: 1.97µs
+david---2021/05/22 10:24:53 DEBUG: Value log discard stats empty
+david---2021/05/22 10:30:39 INFO: All 1 tables opened in 0s
+david---2021/05/22 10:30:39 INFO: Replaying file id: 0 at offset: 162
+david---2021/05/22 10:30:39 INFO: Replay took: 17.695µs
+david---2021/05/22 10:30:39 DEBUG: Value log discard stats empty
+david---2021/05/22 10:31:28 INFO: All 1 tables opened in 1ms
+david---2021/05/22 10:31:28 INFO: Replaying file id: 0 at offset: 162
+david---2021/05/22 10:31:28 INFO: Replay took: 9.758µs
+david---2021/05/22 10:31:28 DEBUG: Value log discard stats empty
+david 2021/05/22 10:41:12 INFO: All 1 tables opened in 0s
+david 2021/05/22 10:41:12 INFO: Replaying file id: 0 at offset: 162
+david 2021/05/22 10:41:12 INFO: Replay took: 15.868µs
+david 2021/05/22 10:41:12 DEBUG: Value log discard stats empty
+david 2021/05/22 13:01:57 INFO: All 1 tables opened in 0s
+david 2021/05/22 13:01:57 INFO: Replaying file id: 0 at offset: 162
+david 2021/05/22 13:01:57 INFO: Replay took: 2.034µs
+david 2021/05/22 13:01:57 DEBUG: Value log discard stats empty
+david 2021/05/22 13:02:30 INFO: All 1 tables opened in 0s
+david 2021/05/22 13:02:30 INFO: Replaying file id: 0 at offset: 162
+david 2021/05/22 13:02:30 INFO: Replay took: 19.025µs
+david 2021/05/22 13:02:30 DEBUG: Value log discard stats empty
+david 2021/05/22 16:18:08 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:18:47 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:18:47 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:18:47 INFO: Replay took: 9.421µs
+david 2021/05/22 16:18:47 DEBUG: Value log discard stats empty
+david 2021/05/22 16:20:03 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:20:03 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:20:03 INFO: Replay took: 9.288µs
+david 2021/05/22 16:20:03 DEBUG: Value log discard stats empty
+david 2021/05/22 16:29:10 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:29:10 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:29:10 INFO: Replay took: 9.241µs
+david 2021/05/22 16:29:10 DEBUG: Value log discard stats empty
+david 2021/05/22 16:30:14 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:30:14 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:30:14 INFO: Replay took: 9.819µs
+david 2021/05/22 16:30:14 DEBUG: Value log discard stats empty
+david 2021/05/22 16:30:52 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:30:52 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:30:52 INFO: Replay took: 10.484µs
+david 2021/05/22 16:30:52 DEBUG: Value log discard stats empty
+david 2021/05/22 16:36:13 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:36:13 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:36:13 INFO: Replay took: 8.92µs
+david 2021/05/22 16:36:13 DEBUG: Value log discard stats empty
+david 2021/05/22 16:36:25 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:36:25 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:36:25 INFO: Replay took: 933.655µs
+david 2021/05/22 16:36:25 DEBUG: Value log discard stats empty
+david 2021/05/22 16:36:45 INFO: All 0 tables opened in 0s
+david 2021/05/22 16:36:45 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 16:36:45 INFO: Replay took: 182.122µs
+david 2021/05/22 16:36:45 DEBUG: Value log discard stats empty
+david 2021/05/22 20:42:55 INFO: All 0 tables opened in 0s
+david 2021/05/22 20:42:55 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 20:42:55 INFO: Replay took: 967.985µs
+david 2021/05/22 20:42:55 DEBUG: Value log discard stats empty
+david 2021/05/22 20:49:08 INFO: All 0 tables opened in 0s
+david 2021/05/22 20:49:08 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 20:49:08 INFO: Replay took: 176.423µs
+david 2021/05/22 20:49:08 DEBUG: Value log discard stats empty
+david 2021/05/22 20:50:44 INFO: All 0 tables opened in 0s
+david 2021/05/22 20:50:44 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 20:50:44 INFO: Replay took: 168.148µs
+david 2021/05/22 20:50:44 DEBUG: Value log discard stats empty
+david 2021/05/22 20:52:39 INFO: All 0 tables opened in 0s
+david 2021/05/22 20:52:39 INFO: Replaying file id: 0 at offset: 0
+david 2021/05/22 20:52:39 INFO: Replay took: 157.845µs
+david 2021/05/22 20:52:39 DEBUG: Value log discard stats empty
