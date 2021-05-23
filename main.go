@@ -21,7 +21,6 @@ import (
 	"backup/utilities"
 	"bufio"
 	"flag"
-	"fmt"
 	"log"
 	"os"
 
@@ -40,10 +39,6 @@ func init() {
 }
 
 func main() {
-	fmt.Println("dbPath: ", dbPath)
-	fmt.Println("inFilePath: ", inFilePath)
-	fmt.Println("write: ", write)
-
 	opts := badger.DefaultOptions(dbPath)
 	logfile, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {

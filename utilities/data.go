@@ -23,6 +23,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"os"
 
 	badger "github.com/dgraph-io/badger"
 )
@@ -35,8 +36,24 @@ type Datastore struct {
 }
 
 type KeyValue struct {
-	key   []byte
-	value []byte
+	Key   []byte
+	Value []byte
+}
+
+func NewDatastore(dbPath string) (*Datastore, error) {
+	opts := badger.DefaultOptions(dbPath)
+	logfile, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	if err != nil {
+		return nil, err
+	}
+	defer logfile.Close()
+	opts.Logger = MyLogger(logfile)
+
+	db, err := badger.Open(opts)
+	if err != nil {
+		return nil, err
+	}
+	return &Datastore{db, 0}, nil
 }
 
 func (d *Datastore) IsSet() bool {
@@ -63,21 +80,38 @@ func (d *Datastore) GetKeyValue(key string) ([]byte, error) {
 	return valCopy, err
 }
 
+func (d *Datastore) KeyIsSet(key string) bool {
+	result := false
+	err := d.DB.View(func(txn *badger.Txn) error {
+		_, err := txn.Get([]byte(key))
+		if err == nil {
+			result = true
+		}
+		return nil
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return result
+}
+
 func (d *Datastore) SetKeyValue(key []byte, value []byte) error {
 	// Not implemented
 	return nil
 }
 
-func (d *Datastore) WriteBatch(data []string) error {
+//func (d *Datastore) WriteBatch(data []string) error {
+func (d *Datastore) WriteBatch(data []KeyValue) error {
 	wb := d.DB.NewWriteBatch()
 	defer wb.Cancel()
 
-	for i, v := range data {
-		key, err := uint64ToBytes(uint64(i))
-		if err != nil {
-			log.Fatal(err)
+	for _, kv := range data {
+		// Check for existing key && value at this key
+		if d.KeyIsSet(string(kv.Key)) {
+			continue
 		}
-		err = wb.Set(key, []byte(v)) // Will create txns as needed.
+		err := wb.Set(kv.Key, kv.Value) // Will create txns as needed.
 		if err != nil {
 			return err
 		}
@@ -137,7 +171,7 @@ func (d *Datastore) OutputAll(f io.Writer, valuesOnly bool) error {
 	return nil
 }
 
-func uint64ToBytes(num uint64) ([]byte, error) {
+func Uint64ToBytes(num uint64) ([]byte, error) {
 	buf := new(bytes.Buffer)
 	err := binary.Write(buf, binary.BigEndian, num)
 	if err != nil {

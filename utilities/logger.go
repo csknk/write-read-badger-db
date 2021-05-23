@@ -32,7 +32,7 @@ type myLog struct {
 // Amend to a function returning a pointer to a myLog struct that contains a Logger
 // initialised with the supplied io.Writer
 func MyLogger(output io.Writer) *myLog {
-	return &myLog{Logger: log.New(output, "david ", log.LstdFlags)}
+	return &myLog{Logger: log.New(output, "csknk DBTool ", log.LstdFlags)}
 }
 
 func (l *myLog) Errorf(f string, v ...interface{}) {
