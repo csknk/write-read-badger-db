@@ -8,7 +8,6 @@ Simple utility that:
 
 Lines in the source file are stored as key-value pairs, with the line number converted to byte slice used as the  key and raw bytes of the line data held as the value.
 
-TODO: Makefile
-TODO: Prevents storage of duplicated
-TODO: Access individual records, lookup by key
-TODO: Benefits of storing the total number of records?
+Records are stored in an append-only manner, with the exception of `height` which tracks DB entries and allows each batch to have unique keys based on an offset.
+
+* TODO: Add Makefile, build binaries for reading & writing
