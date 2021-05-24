@@ -24,3 +24,104 @@ csknk DBTool 2021/05/23 16:01:19 INFO: All 0 tables opened in 0s
 csknk DBTool 2021/05/23 16:01:19 INFO: Replaying file id: 0 at offset: 0
 csknk DBTool 2021/05/23 16:01:19 INFO: Replay took: 121.856µs
 csknk DBTool 2021/05/23 16:01:19 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 16:21:17 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 16:27:27 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 16:28:34 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 18:59:38 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:00:19 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:00:19 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:00:19 INFO: Replay took: 111.576µs
+csknk DBTool 2021/05/24 19:00:19 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:29:44 INFO: All 0 tables opened in 1ms
+csknk DBTool 2021/05/24 19:29:44 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:29:44 INFO: Replay took: 640.869µs
+csknk DBTool 2021/05/24 19:29:44 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:31:20 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:31:20 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:31:20 INFO: Replay took: 618.583µs
+csknk DBTool 2021/05/24 19:31:20 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:37:59 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:37:59 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:37:59 INFO: Replay took: 116.212µs
+csknk DBTool 2021/05/24 19:37:59 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:38:14 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:38:14 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:38:14 INFO: Replay took: 660.205µs
+csknk DBTool 2021/05/24 19:38:14 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:39:15 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:39:15 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:39:15 INFO: Replay took: 121.893µs
+csknk DBTool 2021/05/24 19:39:15 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:39:22 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:39:23 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:39:23 INFO: Replay took: 672.7µs
+csknk DBTool 2021/05/24 19:39:23 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:40:04 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:40:11 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:40:11 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:40:11 INFO: Replay took: 33.593µs
+csknk DBTool 2021/05/24 19:40:11 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:44:18 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:44:18 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:44:18 INFO: Replay took: 130.182µs
+csknk DBTool 2021/05/24 19:44:18 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:44:23 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:44:23 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:44:23 INFO: Replay took: 209.836µs
+csknk DBTool 2021/05/24 19:44:23 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:46:07 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:46:07 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:46:07 INFO: Replay took: 131.369µs
+csknk DBTool 2021/05/24 19:46:07 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:47:14 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:47:14 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:47:14 INFO: Replay took: 31.819µs
+csknk DBTool 2021/05/24 19:47:14 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:47:24 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:47:24 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:47:24 INFO: Replay took: 34.275µs
+csknk DBTool 2021/05/24 19:47:24 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:48:04 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:48:04 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:48:04 INFO: Replay took: 33.537µs
+csknk DBTool 2021/05/24 19:48:04 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:50:35 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:50:35 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:50:35 INFO: Replay took: 226.104µs
+csknk DBTool 2021/05/24 19:50:35 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:58:07 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:58:07 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:58:07 INFO: Replay took: 46.612µs
+csknk DBTool 2021/05/24 19:58:07 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:59:32 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:59:32 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:59:32 INFO: Replay took: 199.721µs
+csknk DBTool 2021/05/24 19:59:32 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 19:59:37 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 19:59:37 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 19:59:37 INFO: Replay took: 151.451µs
+csknk DBTool 2021/05/24 19:59:37 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 20:05:37 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 20:05:37 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 20:05:37 INFO: Replay took: 151.984µs
+csknk DBTool 2021/05/24 20:05:37 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 20:05:40 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 20:05:40 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 20:05:40 INFO: Replay took: 36.659µs
+csknk DBTool 2021/05/24 20:05:40 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 20:05:50 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 20:05:50 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 20:05:50 INFO: Replay took: 39.84µs
+csknk DBTool 2021/05/24 20:05:50 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 20:05:52 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 20:05:52 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 20:05:52 INFO: Replay took: 234.585µs
+csknk DBTool 2021/05/24 20:05:52 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 20:55:34 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 20:55:34 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 20:55:34 INFO: Replay took: 52.952µs
+csknk DBTool 2021/05/24 20:55:34 DEBUG: Value log discard stats empty
+csknk DBTool 2021/05/24 20:58:35 INFO: All 0 tables opened in 0s
+csknk DBTool 2021/05/24 20:58:35 INFO: Replaying file id: 0 at offset: 0
+csknk DBTool 2021/05/24 20:58:35 INFO: Replay took: 245.224µs
+csknk DBTool 2021/05/24 20:58:35 DEBUG: Value log discard stats empty

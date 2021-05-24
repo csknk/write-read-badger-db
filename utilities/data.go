@@ -24,6 +24,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strconv"
 
 	badger "github.com/dgraph-io/badger"
 )
@@ -42,17 +43,17 @@ type KeyValue struct {
 
 func NewDatastore(dbPath string) (*Datastore, error) {
 	opts := badger.DefaultOptions(dbPath)
-	logfile, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	badgerLogfile, err := os.OpenFile("badger-log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		return nil, err
 	}
-	defer logfile.Close()
-	opts.Logger = MyLogger(logfile)
-
+	defer badgerLogfile.Close()
+	opts.Logger = MyLogger(badgerLogfile)
 	db, err := badger.Open(opts)
 	if err != nil {
 		return nil, err
 	}
+
 	return &Datastore{db, 0}, nil
 }
 
@@ -63,12 +64,24 @@ func (d *Datastore) IsSet() bool {
 	return true
 }
 
-func (d *Datastore) GetKeyValue(key string) ([]byte, error) {
+// Make a call to GetKeyValue and interpret the response to determine if the DB has the given key.
+func (d *Datastore) Has(key []byte) (ok bool) {
+	_, err := d.GetKeyValue(key)
+	switch err {
+	case badger.ErrKeyNotFound:
+		ok = false
+	case nil:
+		ok = true
+	}
+	return
+}
+
+func (d *Datastore) GetKeyValue(key []byte) ([]byte, error) {
 	var valCopy []byte
 	err := d.DB.View(func(txn *badger.Txn) error {
 		item, err := txn.Get([]byte(key))
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 
 		err = item.Value(func(val []byte) error {
@@ -96,31 +109,63 @@ func (d *Datastore) KeyIsSet(key string) bool {
 	return result
 }
 
-func (d *Datastore) SetKeyValue(key []byte, value []byte) error {
-	// Not implemented
+func (d *Datastore) SetKeyValue(key, value []byte) error {
+	//	d.Logger.Infof("Setting key %s; value %s", string(key), string(value))
+	err := d.DB.Update(func(txn *badger.Txn) error {
+		return txn.Set(key, value)
+	})
+	if err != nil {
+		//		d.Logger.Errorf("Problem setting key %s; value %s", string(key), string(value))
+		return err
+	}
+
 	return nil
 }
 
-//func (d *Datastore) WriteBatch(data []string) error {
 func (d *Datastore) WriteBatch(data []KeyValue) error {
 	wb := d.DB.NewWriteBatch()
 	defer wb.Cancel()
+	var recordsWritten uint64 = 0
+	height, err := d.Height()
+	if err != nil {
+		return err
+	}
 
 	for _, kv := range data {
-		// Check for existing key && value at this key
 		if d.KeyIsSet(string(kv.Key)) {
 			continue
 		}
-		err := wb.Set(kv.Key, kv.Value) // Will create txns as needed.
+		err := wb.Set(kv.Key, kv.Value)
 		if err != nil {
 			return err
 		}
+		recordsWritten++
 	}
-	err := wb.Flush() // Wait for all txns to finish.
+	err = wb.Flush()
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
+	newHeight := height + recordsWritten
+	heightBytes, err := Uint64ToBytes(newHeight)
+	if err != nil {
+		return err
+	}
+	d.SetKeyValue([]byte("height"), heightBytes)
 	return nil
+}
+
+func (d *Datastore) Height() (uint64, error) {
+	var height uint64
+	hasHeight := d.Has([]byte("height"))
+	if hasHeight {
+		oldHeight, err := d.GetKeyValue([]byte("height"))
+		if err != nil {
+			return 0, err
+		}
+		height = BytesToUint64(oldHeight)
+	}
+
+	return height, nil
 }
 
 // Send all key value pairs to stdout
@@ -130,10 +175,6 @@ func (d *Datastore) OutputAll(f io.Writer, valuesOnly bool) error {
 		opts.PrefetchValues = false
 		it := txn.NewIterator(opts)
 		defer it.Close()
-		//		format := "%s\t%s\n"
-		//		tw := new(tabwriter.Writer).Init(f, 12, 8, 2, ' ', 0)
-		//		fmt.Fprintf(tw, format, "Key", "Value")
-		//		fmt.Fprintf(tw, format, "---", "-----")
 		for it.Rewind(); it.Valid(); it.Next() {
 			item := it.Item()
 			var val []byte
@@ -145,24 +186,18 @@ func (d *Datastore) OutputAll(f io.Writer, valuesOnly bool) error {
 			if err != nil {
 				return err
 			}
-			if valuesOnly {
-				fmt.Fprintf(f, "%s\n", string(val))
+			var printVal string
+			if string(key) == "height" {
+				printVal = strconv.FormatUint(BytesToUint64(val), 10)
 			} else {
-				fmt.Fprintf(f, "%s\t%s\n", decodeKey(key), string(val))
-
+				printVal = string(val)
 			}
-			//			fmt.Fprintf(tw, format, decodeKey(key), string(val))
-
-			//			fmt.Printf(
-			//				"%s%s: %s%s%s\n",
-			//				string(colorYellow),
-			//				decodeKey(key),
-			//				string(colorWhite),
-			//				string(val),
-			//				string(colorReset),
-			//			)
+			if valuesOnly {
+				fmt.Fprintf(f, "%s\n", printVal)
+				continue
+			}
+			fmt.Fprintf(f, "%s\t%s\n", decodeKey(key), printVal)
 		}
-		//		tw.Flush()
 		return nil
 	})
 	if err != nil {
@@ -179,3 +214,38 @@ func Uint64ToBytes(num uint64) ([]byte, error) {
 	}
 	return buf.Bytes(), nil
 }
+
+func BytesToUint64(buf []byte) uint64 {
+	return binary.BigEndian.Uint64(buf)
+}
+
+//func (d *Datastore) Errorf(format string, v ...interface{}) {
+//	if d.Logger == nil {
+//		return
+//	}
+//	d.Logger.Errorf(format, v...)
+//}
+//
+//// Infof logs an INFO message to the logger specified in d..
+//func (d *Datastore) Infof(format string, v ...interface{}) {
+//	if d.Logger == nil {
+//		return
+//	}
+//	d.Logger.Infof(format, v...)
+//}
+//
+//// Warningf logs a WARNING message to the logger specified in d..
+//func (d *Datastore) Warningf(format string, v ...interface{}) {
+//	if d.Logger == nil {
+//		return
+//	}
+//	d.Logger.Warningf(format, v...)
+//}
+//
+//// Debugf logs a DEBUG message to the logger specified in d..
+//func (d *Datastore) Debugf(format string, v ...interface{}) {
+//	if d.Logger == nil {
+//		return
+//	}
+//	d.Logger.Debugf(format, v...)
+//}

@@ -32,7 +32,7 @@ var logfile *os.File
 func init() {
 	flag.StringVar(&inFilePath, "infile", "", "Please specify an input file")
 	flag.StringVar(&dbPath, "db", "", "Please specify a database")
-	flag.Uint64Var(&offset, "offset", 0, "Specify offset (default is 0)")
+	//	flag.Uint64Var(&offset, "offset", 0, "Specify offset (default is 0)")
 	flag.Parse()
 }
 
@@ -49,7 +49,14 @@ func main() {
 	defer f.Close()
 	sc := bufio.NewScanner(f)
 	kvs := []utilities.KeyValue{}
-	var i uint64 = offset
+
+	// Append only - the first key is the last height, so keys are always incrementing
+	// TODO Move into a dedicated method
+	offset, err = data.Height()
+	if err != nil {
+		log.Fatal(err)
+	}
+	i := offset
 	for sc.Scan() {
 		k, err := utilities.Uint64ToBytes(i)
 		if err != nil {

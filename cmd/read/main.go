@@ -45,4 +45,5 @@ func main() {
 		log.Fatal(err)
 	}
 	data.OutputAll(out, true)
+	data.OutputAll(out, false)
 }
